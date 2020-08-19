@@ -1,63 +1,48 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /*
  * @lc app=leetcode id=66 lang=java
  *
  * [66] Plus One
  */
-
+// https://technooblog.com/2019/04/10/
+// 全部コピー
 // @lc code=start
 class Solution {
     public int[] plusOne(int[] digits) {
-        int size = digits.length;
-        int firstCountUp = 0;
+ 
         boolean countUp = false;
-        digits[digits.length - 1] += 1;
-        if (digits[digits.length - 1] == 10) {
-            size++;
-            firstCountUp = 1;
-            countUp = true;
-        }
-        List<Integer> ints = new ArrayList<>(size);
-        // int ints[] = new int[size];
 
-        int tmp = 0;
-        for (int i = size - 1; 0 <= i; i--) {
-            int index = i - firstCountUp;
-            if (index < 0) {
-                tmp = 0;
-            } else {
-                tmp = digits[index];
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = digits.length - 1; i >= 0; i--) {
+            int chosei = 0;
+            if (i == digits.length - 1) {
+                chosei++;
             }
-
             if (countUp) {
-                if (tmp == 10) {
-
-                } else {
-                    tmp += 1;
-
-                }
-                if (tmp == 10) {
-                    tmp = 0;
-                    countUp = true;
-                } else {
-                    countUp = false;
-                }
+                chosei++;
+                countUp = false;
             }
-            ints.add(i, tmp);
-            // ints[i] = tmp;
+            int tmp = digits[i] + chosei;
+            if (10 <= tmp) {
+                countUp = true;
+                tmp %= 10;
+            }
+            list.addLast(tmp);
+            // 最後繰り上げ
+            if (countUp && i == 0) {
+                list.addLast(1);
+            }
         }
-        if (ints.get(0) == 0){
-            ints.remove(0);
+        int[] res = new int[list.size()];
+        int index = list.size() - 1;
+        for (int b : list) {
+            res[index] = b;
+            index--;
         }
-        
-        int[] ints2 = new int[ints.size()];
-        for (int j = 0;j <= ints.size(); j++){
-            ints2[j] = (int)ints.get(j);
-        }
+        return res;
 
-        return ints2;
+ 
     }
 }
 // @lc code=end
