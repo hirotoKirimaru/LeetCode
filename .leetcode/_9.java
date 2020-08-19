@@ -5,7 +5,7 @@
  */
 
 // @lc code=start
-class Solution {
+public class _9 {
     public boolean isPalindrome(int x) {
         String str = String.valueOf(x);
 

@@ -8,9 +8,9 @@ import java.util.LinkedList;
 // https://technooblog.com/2019/04/10/
 // 全部コピー
 // @lc code=start
-class Solution {
+public class _66 {
     public int[] plusOne(int[] digits) {
- 
+
         boolean countUp = false;
 
         LinkedList<Integer> list = new LinkedList<>();
@@ -42,7 +42,7 @@ class Solution {
         }
         return res;
 
- 
+
     }
 }
 // @lc code=end

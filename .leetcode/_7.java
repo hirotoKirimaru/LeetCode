@@ -4,7 +4,7 @@
  * [7] Reverse Integer
  */
 // @lc code=start
-class Solution {
+public class _7 {
     public int reverse(int x) {
         String str = String.valueOf(x);
 
@@ -22,7 +22,7 @@ class Solution {
         } catch(Exception e){
             return 0;
         }
-        
+
     }
 }
 // @lc code=end
