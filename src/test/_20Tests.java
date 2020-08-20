@@ -25,7 +25,7 @@ class _20Tests {
 
   @Test
   void test_04(){
-    boolean valid = target.isValid("(])]");
+    boolean valid = target.isValid("([)]");
     assertEquals(valid, false);
   }
 
