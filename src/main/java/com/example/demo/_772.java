@@ -1,14 +1,19 @@
+package com.example.demo;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode
+ * next; ListNode() {} ListNode(int val) { this.val = val; } ListNode(int val,
+ * ListNode next) { this.val = val; this.next = next; } }
  */
 class _772 {
+  class ListNode{
+    int val;
+    ListNode next;
+  }
+
   public boolean isPalindrome(ListNode head) {
     if (Objects.isNull(head)) {
       return true;

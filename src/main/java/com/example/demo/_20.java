@@ -1,7 +1,9 @@
+package com.example.demo;
+
 import java.util.HashMap;
 import java.util.Stack;
 
-class _20 {
+public class _20 {
 
   // Hash table that takes care of the mappings.
   private HashMap<Character, Character> mappings;

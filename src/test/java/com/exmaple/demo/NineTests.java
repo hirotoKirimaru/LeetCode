@@ -1,6 +1,10 @@
+package com.exmaple.demo;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.example.demo._9;
 
 class NineTests {
   @Test

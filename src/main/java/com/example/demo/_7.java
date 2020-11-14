@@ -1,7 +1,9 @@
+package com.example.demo;
+
 /**
  * @lc app=leetcode id=7 lang=java
  *
- * [7] Reverse Integer
+ *     [7] Reverse Integer
  */
 // @lc code=start
 public class _7 {
