@@ -3,3 +3,5 @@ LeetCode.iml
 /.vscode/
 /bin/
 /.gradle/
+/build/
+.project
