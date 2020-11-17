@@ -6,9 +6,28 @@ package com.example.demo;/*
 
 // @lc code=start
 public class _1598 {
-    public int minOperations(String[] logs) {
-        return 0;
+  private String dir = "";
+
+  public int minOperations(String[] logs) {
+    for (String log : logs) {
+      if (log.equals("./")) {
+        continue;
+      } else if (log.equals("../")) {
+        final String[] split = dir.split("/");
+        dir = "";
+        for (int i = 0; i < split.length -1; i++) {
+          dir += split[i] + "/";
+        }
+
+      } else {
+        dir += log;
+      }
     }
+    if (dir.equals("")){
+      return 0;
+    }
+    return dir.split("/").length;
+  }
 }
 // @lc code=end
 
