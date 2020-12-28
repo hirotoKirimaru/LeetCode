@@ -77,16 +77,55 @@ class _2 {
       l1Number.insert(0, l1.val);
       l1 = l1.next;
     }
+    l1Number = l1Number.reverse();
 
     StringBuilder l2Number = new StringBuilder();
     while (l2 != null) {
       l2Number.insert(0, l2.val);
       l2 = l2.next;
     }
+    l2Number = l2Number.reverse();
 
-    var sum = Integer.parseInt(l1Number.toString()) + Integer.parseInt(l2Number.toString());
+    int maxDigit = Math.max(l1Number.length(), l2Number.length());
 
-    String sumStr = String.valueOf(sum);
+    StringBuilder sum2 = new StringBuilder();
+    boolean countUp = false;
+    for (int i = 0; i < maxDigit; i++) {
+      int l1Num = 0;
+      if (i < l1Number.length()) {
+
+        l1Num = Integer.parseInt(l1Number.substring(i, i + 1));
+
+      }
+      int l2Num = 0;
+
+      if (i < l2Number.length()) {
+        l2Num = Integer.parseInt(l2Number.substring(i, i + 1));
+
+      }
+
+      int i1 = 0;
+      if (countUp) {
+        i1 = l1Num + l2Num + 1;
+      } else {
+        i1 = l1Num + l2Num;
+      }
+
+
+      if (i1 >= 10) {
+        i1 -= 10;
+        countUp = true;
+      } else {
+        countUp = false;
+      }
+      sum2.insert(0, i1);
+
+    }
+    if (countUp){
+      sum2.insert(0, 1);
+    }
+
+    String sumStr = String.valueOf(sum2);
 
     ListNode rtn = null;
     while (!sumStr.equals("")) {

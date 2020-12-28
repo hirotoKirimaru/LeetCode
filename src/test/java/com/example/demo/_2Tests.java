@@ -39,7 +39,7 @@ class _2Tests {
   void test_02() {
     _2.ListNode param1_1 = new _2.ListNode(0);
 
-    _2.ListNode param2_1 = new _2.ListNode(5);
+    _2.ListNode param2_1 = new _2.ListNode(0);
 
     _2.ListNode actual = target.addTwoNumbers(param1_1, param2_1);
 
@@ -90,7 +90,7 @@ class _2Tests {
 
   }
 
-  @Disabled("桁あふれをいい感じにする")
+//  @Disabled("桁あふれをいい感じにする")
   @Test
   void test_04() {
     _2.ListNode param1_1 = new _2.ListNode(9);
