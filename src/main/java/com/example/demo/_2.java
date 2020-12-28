@@ -84,7 +84,7 @@ class _2 {
       l2 = l2.next;
     }
 
-    var sum = Long.parseLong(l1Number.toString()) + Long.parseLong(l2Number.toString());
+    var sum = Integer.parseInt(l1Number.toString()) + Integer.parseInt(l2Number.toString());
 
     String sumStr = String.valueOf(sum);
 
