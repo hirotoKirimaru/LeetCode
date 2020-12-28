@@ -72,19 +72,8 @@ class _2 {
 
 
   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-    StringBuilder l1Number = new StringBuilder();
-    while (l1 != null) {
-      l1Number.insert(0, l1.val);
-      l1 = l1.next;
-    }
-    l1Number = l1Number.reverse();
-
-    StringBuilder l2Number = new StringBuilder();
-    while (l2 != null) {
-      l2Number.insert(0, l2.val);
-      l2 = l2.next;
-    }
-    l2Number = l2Number.reverse();
+    StringBuilder l1Number = getStringBuilder(l1);
+    StringBuilder l2Number = getStringBuilder(l2);
 
     int maxDigit = Math.max(l1Number.length(), l2Number.length());
 
@@ -135,6 +124,16 @@ class _2 {
 
 
     return rtn;
+  }
+
+  private StringBuilder getStringBuilder(ListNode l1) {
+    StringBuilder l1Number = new StringBuilder();
+    while (l1 != null) {
+      l1Number.insert(0, l1.val);
+      l1 = l1.next;
+    }
+    l1Number = l1Number.reverse();
+    return l1Number;
   }
 
 
