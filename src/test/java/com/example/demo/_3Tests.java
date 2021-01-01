@@ -32,4 +32,22 @@ class _3Tests {
     int actual = target.lengthOfLongestSubstring("");
     assertThat(actual).isEqualTo(0);
   }
+
+  @Test
+  void test_05() {
+    int actual = target.lengthOfLongestSubstring("c");
+    assertThat(actual).isEqualTo(1);
+  }
+
+  @Test
+  void test_06() {
+    int actual = target.lengthOfLongestSubstring("au");
+    assertThat(actual).isEqualTo(2);
+  }
+
+  @Test
+  void test_07() {
+    int actual = target.lengthOfLongestSubstring("aab");
+    assertThat(actual).isEqualTo(2);
+  }
 }

@@ -52,6 +52,7 @@ class _3 {
     if ("".equals(s)) {
       return 0;
     }
+
     String tmp = "";
 
     int returnNum = 0;
@@ -59,20 +60,17 @@ class _3 {
     for (int i = 1; i <= s.length(); i++) {
       tmp = s.substring(startIndex, i);
       String substring = s.substring(i);
+      if (substring.length() == 0) {
+        break;
+      }
 
-      boolean contains = substring.contains(tmp);
-      if (contains) {
-        if (tmp.equals(substring.substring(0, i - startIndex))) {
-          returnNum = tmp.length();
-          startIndex = i;
-        }
-      } else {
-        System.out.println("");
+      if (tmp.contains(substring.substring(0, 1))) {
+        returnNum = Math.max(returnNum, tmp.length());
+        startIndex = i;
       }
     }
 
-
-    return returnNum;
+    return Math.max(returnNum, tmp.length());
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
