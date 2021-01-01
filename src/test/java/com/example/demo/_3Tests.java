@@ -50,4 +50,10 @@ class _3Tests {
     int actual = target.lengthOfLongestSubstring("aab");
     assertThat(actual).isEqualTo(2);
   }
+
+  @Test
+  void test_08() {
+    int actual = target.lengthOfLongestSubstring("dvdf");
+    assertThat(actual).isEqualTo(3);
+  }
 }

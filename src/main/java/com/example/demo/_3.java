@@ -63,10 +63,12 @@ class _3 {
       if (substring.length() == 0) {
         break;
       }
-
-      if (tmp.contains(substring.substring(0, 1))) {
+      String targetChar = substring.substring(0, 1);
+      if (tmp.contains(targetChar)) {
         returnNum = Math.max(returnNum, tmp.length());
-        startIndex = i;
+        int i1 = tmp.indexOf(targetChar);
+
+        startIndex = i - (tmp.length() - i1 - 1);
       }
     }
 
