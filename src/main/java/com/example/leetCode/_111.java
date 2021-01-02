@@ -36,6 +36,9 @@ package com.example.leetCode;//Given a binary tree, find its minimum depth.
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -60,8 +63,62 @@ class _111 {
      TreeNode right;
      TreeNode(int val) { this.val = val; }
  }
+
+  public static class Depth {
+    int depth;
+    List<TreeNode> nodes;
+
+    public Depth(int i, List<TreeNode> root) {
+      this.depth = i;
+      this.nodes = root;
+    }
+  }
   public int minDepth(TreeNode root) {
-    return 0;
+    if (root == null) {
+      return 0;
+    }
+
+    List<Depth> depthList = new ArrayList<>();
+    depthList.add(
+        new Depth(
+            1,
+            List.of(root)
+        ));
+
+    int index = 0;
+    while (true) {
+      Depth depth = depthList.get(index);
+      Depth depth1 = new Depth(depth.depth + 1, new ArrayList<>());
+      for (TreeNode node : depth.nodes) {
+        TreeNode left = node.left;
+        TreeNode right = node.right;
+
+        if (left != null) {
+          depth1.nodes.add(left);
+        }
+
+        if (right != null) {
+          depth1.nodes.add(right);
+        }
+      }
+
+      if (depth1.nodes.size() == 0) {
+        break;
+      }
+
+      depthList.add(depth1);
+      index++;
+    }
+
+    for (Depth depth : depthList) {
+      for (TreeNode node : depth.nodes) {
+        if (node.left == null && node.right == null){
+          return depth.depth;
+        }
+      }
+    }
+
+    return depthList.size();
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
