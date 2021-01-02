@@ -44,6 +44,9 @@ package com.example.demo;//Given the root of a binary tree, return its maximum d
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -60,7 +63,7 @@ package com.example.demo;//Given the root of a binary tree, return its maximum d
  * }
  */
 class _104 {
-  public class TreeNode {
+  public static class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -80,7 +83,65 @@ class _104 {
   }
 
   public int maxDepth(TreeNode root) {
-    return 0;
+    if (root == null) {
+      return 0;
+    }
+
+    int depth = 0;
+    int rightDepth = 0;
+    TreeNode tmp = root;
+    TreeNode left;
+    TreeNode right;
+    while (true) {
+      left = tmp.left;
+      right = tmp.right;
+
+      if (right != null) {
+        tmp = right;
+        depth++;
+        continue;
+      }
+
+      if (left != null) {
+        tmp = left;
+        depth++;
+        continue;
+      }
+
+      if (left == null & right == null) {
+        break;
+      }
+    }
+    tmp = root.left;
+
+    int leftDepth = 1;
+    while (true) {
+      if (tmp == null) {
+        leftDepth = 0;
+        break;
+      }
+
+      left = tmp.left;
+      right = tmp.right;
+
+      if (left != null) {
+        tmp = left;
+        leftDepth++;
+        continue;
+      }
+
+      if (right != null) {
+        tmp = right;
+        leftDepth++;
+        continue;
+      }
+
+      if (left == null & right == null) {
+        break;
+      }
+    }
+
+    return Math.max(depth, leftDepth) + 1;
   }
 
 
