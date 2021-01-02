@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -65,5 +66,29 @@ class _104Test {
     int actual = target.maxDepth(root);
     Assertions.assertThat(actual).isEqualTo(3);
   }
+
+  @Disabled("構造が分からん")
+  @Test
+  void test_06() {
+
+//[3,4,5,-7,-6,null,null,-7,null,-5,null,null,null,-4]
+    _104.TreeNode root = new _104.TreeNode(3);
+    _104.TreeNode left = new _104.TreeNode(4);
+    _104.TreeNode right = new _104.TreeNode(5);
+    _104.TreeNode left_1 = new _104.TreeNode(-7);
+    _104.TreeNode left_2 = new _104.TreeNode(-6);
+    _104.TreeNode left_2_1 = new _104.TreeNode(-7);
+
+    root.left = left;
+    left.left = left_1;
+    left.right = left_2;
+    left_2.left = left_2_1;
+    root.right = right;
+
+
+    int actual = target.maxDepth(root);
+    Assertions.assertThat(actual).isEqualTo(5);
+  }
+
 
 }

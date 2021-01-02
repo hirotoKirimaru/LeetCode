@@ -44,6 +44,9 @@ package com.example.demo;//Given the root of a binary tree, return its maximum d
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,22 +66,25 @@ import java.util.List;
  * }
  */
 class _104 {
+  @NoArgsConstructor
+  @AllArgsConstructor
   public static class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
 
-    TreeNode() {
-    }
-
     TreeNode(int val) {
       this.val = val;
     }
+  }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
+  public static class Depth {
+    int depth;
+    List<TreeNode> nodes;
+
+    public Depth(int i, List<TreeNode> root) {
+      this.depth = i;
+      this.nodes = root;
     }
   }
 
@@ -87,61 +93,39 @@ class _104 {
       return 0;
     }
 
-    int depth = 0;
-    int rightDepth = 0;
-    TreeNode tmp = root;
-    TreeNode left;
-    TreeNode right;
+    List<Depth> depthList = new ArrayList<>();
+    depthList.add(
+        new Depth(
+            1,
+            List.of(root)
+        ));
+
+    int index = 0;
     while (true) {
-      left = tmp.left;
-      right = tmp.right;
+      Depth depth = depthList.get(index);
+      Depth depth1 = new Depth(depth.depth + 1, new ArrayList<>());
+      for (TreeNode node : depth.nodes) {
+        TreeNode left = node.left;
+        TreeNode right = node.right;
 
-      if (right != null) {
-        tmp = right;
-        depth++;
-        continue;
+        if (left != null) {
+          depth1.nodes.add(left);
+        }
+
+        if (right != null) {
+          depth1.nodes.add(right);
+        }
       }
 
-      if (left != null) {
-        tmp = left;
-        depth++;
-        continue;
-      }
-
-      if (left == null & right == null) {
-        break;
-      }
-    }
-    tmp = root.left;
-
-    int leftDepth = 1;
-    while (true) {
-      if (tmp == null) {
-        leftDepth = 0;
+      if (depth1.nodes.size() == 0) {
         break;
       }
 
-      left = tmp.left;
-      right = tmp.right;
-
-      if (left != null) {
-        tmp = left;
-        leftDepth++;
-        continue;
-      }
-
-      if (right != null) {
-        tmp = right;
-        leftDepth++;
-        continue;
-      }
-
-      if (left == null & right == null) {
-        break;
-      }
+      depthList.add(depth1);
+      index++;
     }
 
-    return Math.max(depth, leftDepth) + 1;
+    return depthList.size();
   }
 
 
