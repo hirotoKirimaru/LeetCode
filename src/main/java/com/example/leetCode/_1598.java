@@ -1,4 +1,4 @@
-package com.example.demo;/*
+package com.example.leetCode;/*
  * @lc app=leetcode id=1598 lang=java
  *
  * [1598] Crawler Log Folder

@@ -1,10 +1,8 @@
-package com.example.demo;
+package com.example.leetCode;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class _104Test {
   _104 target = new _104();

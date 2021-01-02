@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.leetCode;
 
 /*
  * @lc app=leetcode id=9 lang=java

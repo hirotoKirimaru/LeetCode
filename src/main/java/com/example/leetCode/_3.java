@@ -1,4 +1,4 @@
-package com.example.demo;//Given a string s, find the length of the longest substring without repeating c
+package com.example.leetCode;//Given a string s, find the length of the longest substring without repeating c
 //haracters.
 //
 //

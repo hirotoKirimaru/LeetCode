@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.example.demo._1598;
+import com.example.leetCode._1598;
 
 class _1598Tests {
   public _1598 target = new _1598();

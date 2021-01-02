@@ -1,4 +1,4 @@
-package com.example.demo;//Given the root of a binary tree, return its maximum depth.
+package com.example.leetCode;//Given the root of a binary tree, return its maximum depth.
 //
 // A binary tree's maximum depth is the number of nodes along the longest path f
 //rom the root node down to the farthest leaf node.

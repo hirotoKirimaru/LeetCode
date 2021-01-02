@@ -1,10 +1,9 @@
-package com.example.demo;
+package com.example.leetCode;
 
-import com.example.demo._142.ListNode;
+import com.example.leetCode._142.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class _142Test {
   _142 target = new _142();

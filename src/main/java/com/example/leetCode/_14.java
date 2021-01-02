@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.leetCode;
 
 //Write a function to find the longest common prefix string amongst an array of
 //strings.
@@ -32,8 +32,6 @@ package com.example.demo;
 // Related Topics String
 // 👍 3371 👎 2044
 
-
-import java.util.Collection;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class _14 {

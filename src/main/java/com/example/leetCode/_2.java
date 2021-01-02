@@ -1,4 +1,4 @@
-package com.example.demo;//You are given two non-empty linked lists representing two non-negative integer
+package com.example.leetCode;//You are given two non-empty linked lists representing two non-negative integer
 //s. The digits are stored in reverse order, and each of their nodes contains a si
 //ngle digit. Add the two numbers and return the sum as a linked list.
 //

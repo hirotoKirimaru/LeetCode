@@ -1,4 +1,4 @@
-package com.example.demo;//Given a sorted linked list, delete all duplicates such that each element appea
+package com.example.leetCode;//Given a sorted linked list, delete all duplicates such that each element appea
 //r only once.
 //
 // Example 1:
