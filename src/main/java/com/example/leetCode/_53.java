@@ -59,44 +59,20 @@ import java.util.stream.IntStream;
 //leetcode submit region begin(Prohibit modification and deletion)
 class _53 {
   public int maxSubArray(int[] nums) {
-    List<Integer> rtn = new ArrayList<>();
+    int total = 0;
+    int maxi = Integer.MIN_VALUE;
+    for (int curr : nums) {
+      int past = total + curr;
 
-    for (int i = 0; i < nums.length; i++) {
-      int num = nums[i];
-      if (rtn.size() == 0) {
-        rtn.add(num);
-        continue;
-      }
-
-      // 最初の数値はマイナスになるのであれば、できるだけ大きい値にする。
-      // -100, 900, -50のうち
-      // -100, 900の組み合わせと、900, -50の組み合わせをぶつける
-      int sum = rtn.stream().flatMapToInt(IntStream::of).sum();
-      List<Integer> integers = new ArrayList<>(rtn);
-      List<Integer> tmp = new ArrayList<>();
-      integers.remove(0);
-      integers.add(num);
-      int exceptFirst = integers.stream().flatMapToInt(IntStream::of).sum();
-      if (sum < exceptFirst) {
-        if (sum < 0) {
-          rtn.clear();
-          tmp.clear();
-        }
-        rtn.add(num);
-        tmp.add(num);
+      if (past < curr) {
+        total = curr;
       } else {
-        if (exceptFirst < 0) {
-          tmp.add(num);
-          continue;
-        }
-
-        rtn.clear();
-        rtn.addAll(integers);
-        tmp.clear();
-        tmp.addAll(integers);
+        total += curr;
       }
+      maxi = Math.max(maxi, total);
     }
-    return rtn.stream().flatMapToInt(IntStream::of).sum();
+
+    return maxi;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
