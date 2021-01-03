@@ -1,5 +1,6 @@
 package com.example.leetCode;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -64,6 +65,15 @@ class _53Tests {
     int[] nums = new int[]{-100, 900, -50};
     int i = target.maxSubArray(nums);
     assertThat(i).isEqualTo(900);
+  }
+
+  @DisplayName("わからない")
+  @Test
+  void test_08() {
+
+    int[] nums = new int[]{8, -19, 5, -4, 20};
+    int i = target.maxSubArray(nums);
+    assertThat(i).isEqualTo(21);
   }
 
 }
