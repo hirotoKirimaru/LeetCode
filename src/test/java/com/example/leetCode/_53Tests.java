@@ -67,7 +67,7 @@ class _53Tests {
     assertThat(i).isEqualTo(900);
   }
 
-  @DisplayName("わからない")
+//  @DisplayName("わからない")
   @Test
   void test_08() {
 

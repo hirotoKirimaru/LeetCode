@@ -73,20 +73,27 @@ class _53 {
       // -100, 900の組み合わせと、900, -50の組み合わせをぶつける
       int sum = rtn.stream().flatMapToInt(IntStream::of).sum();
       List<Integer> integers = new ArrayList<>(rtn);
+      List<Integer> tmp = new ArrayList<>();
       integers.remove(0);
       integers.add(num);
       int exceptFirst = integers.stream().flatMapToInt(IntStream::of).sum();
       if (sum < exceptFirst) {
-        if (sum < 0){
+        if (sum < 0) {
           rtn.clear();
+          tmp.clear();
         }
         rtn.add(num);
+        tmp.add(num);
       } else {
-        if (exceptFirst < 0){
+        if (exceptFirst < 0) {
+          tmp.add(num);
           continue;
         }
+
         rtn.clear();
         rtn.addAll(integers);
+        tmp.clear();
+        tmp.addAll(integers);
       }
     }
     return rtn.stream().flatMapToInt(IntStream::of).sum();
