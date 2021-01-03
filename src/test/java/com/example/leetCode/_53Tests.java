@@ -61,7 +61,7 @@ class _53Tests {
   @Test
   void test_07() {
 
-    int[] nums = new int[]{0, -100, 900, -50};
+    int[] nums = new int[]{-100, 900, -50};
     int i = target.maxSubArray(nums);
     assertThat(i).isEqualTo(900);
   }

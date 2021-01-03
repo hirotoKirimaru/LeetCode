@@ -54,7 +54,6 @@ package com.example.leetCode;//Given an integer array nums, find the contiguous 
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 //leetcode submit region begin(Prohibit modification and deletion)
@@ -72,22 +71,23 @@ class _53 {
       // 最初の数値はマイナスになるのであれば、できるだけ大きい値にする。
       // -100, 900, -50のうち
       // -100, 900の組み合わせと、900, -50の組み合わせをぶつける
-//      if (num < 0) {
       int sum = rtn.stream().flatMapToInt(IntStream::of).sum();
       List<Integer> integers = new ArrayList<>(rtn);
       integers.remove(0);
       integers.add(num);
       int exceptFirst = integers.stream().flatMapToInt(IntStream::of).sum();
       if (sum < exceptFirst) {
+        if (sum < 0){
+          rtn.clear();
+        }
+        rtn.add(num);
+      } else {
+        if (exceptFirst < 0){
+          continue;
+        }
         rtn.clear();
         rtn.addAll(integers);
-        continue;
       }
-//        continue;
-//      }
-      rtn.add(num);
-
-
     }
     return rtn.stream().flatMapToInt(IntStream::of).sum();
   }
