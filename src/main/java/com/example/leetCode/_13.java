@@ -79,10 +79,53 @@ package com.example.leetCode; //Roman numerals are represented by seven differen
 // 👍 2815 👎 3856
 
 
+import java.util.Arrays;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _13 {
+  public enum Roman {
+    I("I", 1),
+    V("V", 5),
+    X("X", 10),
+    L("L", 50),
+    C("C", 100),
+    D("D", 500),
+    M("M", 1000),
+    ;
+
+    Roman(String roman, int num) {
+      this.roman = roman;
+      this.num = num;
+    }
+
+    private String roman;
+    private int num;
+
+    public static Roman computeNum(String charactor) {
+      return Arrays.stream(values())
+          .filter(e -> e.roman.equals(charactor))
+          .findAny().get();
+    }
+  }
+
   public int romanToInt(String s) {
-    return 3;
+    int sum = 0;
+    Roman previousRoman = null;
+    for (char c : s.toCharArray()) {
+      Roman roman = Roman.computeNum(String.valueOf(c));
+      sum += roman.num;
+
+      if (previousRoman != null) {
+        int i = (roman.num - previousRoman.num) / previousRoman.num;
+        if (i == 4 || i == 9) {
+          sum -= previousRoman.num * 2;
+        }
+      }
+
+      previousRoman = roman;
+    }
+
+    return sum;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
