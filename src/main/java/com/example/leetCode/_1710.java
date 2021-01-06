@@ -46,10 +46,45 @@ package com.example.leetCode;//You are assigned to put some amount of boxes onto
 // 👍 81 👎 4
 
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _1710 {
+  public static class Box {
+    int numberOfBoxes;
+    int numberOfUnitsPerBox;
+
+    public Box(int numberOfBoxes, int numberOfUnitsPerBox) {
+      this.numberOfBoxes = numberOfBoxes;
+      this.numberOfUnitsPerBox = numberOfUnitsPerBox;
+    }
+
+    public int getNumberOfUnitsPerBox() {
+      return numberOfUnitsPerBox;
+    }
+  }
+
   public int maximumUnits(int[][] boxTypes, int truckSize) {
-    return 8;
+    int sum = 0;
+    List<Box> collect = Arrays.stream(boxTypes)
+        .map(e -> new Box(e[0], e[1]))
+        .sorted(Comparator.comparing(Box::getNumberOfUnitsPerBox, Comparator.reverseOrder()))
+        .collect(Collectors.toList());
+
+    for (Box box : collect) {
+      truckSize -= box.numberOfBoxes;
+      sum += box.numberOfUnitsPerBox * box.numberOfBoxes;
+      if (truckSize <= 0){
+        sum -= Math.abs(truckSize) * box.numberOfUnitsPerBox;
+        break;
+      }
+    }
+
+    return sum;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

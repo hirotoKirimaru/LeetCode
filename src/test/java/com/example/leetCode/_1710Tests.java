@@ -14,4 +14,11 @@ class _1710Tests {
     int actual = target.maximumUnits(param1, 4);
     assertThat(actual).isEqualTo(8);
   }
+
+  @Test
+  void test_02() {
+    int[][] param1 = new int[][]{{5, 10}, {2, 5}, {4, 7}, {3, 9}};
+    int actual = target.maximumUnits(param1, 10);
+    assertThat(actual).isEqualTo(91);
+  }
 }
