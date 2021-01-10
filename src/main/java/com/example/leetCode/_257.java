@@ -22,7 +22,9 @@ package com.example.leetCode;//Given a binary tree, return all root-to-leaf path
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Definition for a binary tree node.
@@ -41,7 +43,7 @@ import java.util.List;
  */
 class _257 {
 
-  public class TreeNode {
+  public static class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -61,7 +63,19 @@ class _257 {
   }
 
   public List<String> binaryTreePaths(TreeNode root) {
-    return List.of("1->2->5", "1->3");
+    List<String> result = new ArrayList<String>();
+    if (root == null) return result;
+    if (root.left == null && root.right == null) {
+      result.add(Integer.toString(root.val));
+      return result;
+    }
+    for (String t : binaryTreePaths(root.left)) {
+      result.add(root.val + "->" + t);
+    }
+    for (String t : binaryTreePaths(root.right)) {
+      result.add(root.val + "->" + t);
+    }
+    return result;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
