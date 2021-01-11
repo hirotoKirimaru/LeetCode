@@ -52,7 +52,7 @@ class _263 {
     public static BigDecimal divide(BigDecimal num) {
       BigDecimal tmp = num;
       for (Numbers value : values()) {
-        BigDecimal divide = tmp.divide(value.num, MathContext.DECIMAL32);
+        BigDecimal divide = tmp.divide(value.num, MathContext.DECIMAL128);
         String s = divide.subtract(new BigDecimal(divide.intValue())).toPlainString();
         if (s.equals("0")) {
           return divide;
