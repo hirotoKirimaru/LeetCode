@@ -16,10 +16,27 @@ package com.example.leetCode;//Given an array nums, write a function to move all
 // 👍 4835 👎 149
 
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _283 {
   public void moveZeroes(int[] nums) {
 
+    int count = 0;
+    int index = 0;
+    for (int num : nums) {
+      if (num == 0) {
+        count++;
+      } else {
+        nums[index] = num;
+        index++;
+      }
+    }
+
+    for (int i = 1; i <= count; i++) {
+      nums[nums.length - i] = 0;
+    }
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
