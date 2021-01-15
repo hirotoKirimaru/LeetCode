@@ -52,10 +52,34 @@ package com.example.leetCode;
 // 👍 1054 👎 206
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 public class _929 {
   public int numUniqueEmails(String[] emails) {
-    return 2;
+    List<String> tmp = new ArrayList<>();
+    for (String email : emails) {
+      int index = email.indexOf("@");
+      String local = email.substring(0, index);
+      int plusIndex = local.indexOf("+");
+      String local2;
+      if (plusIndex == -1) {
+        local2 = local;
+      } else {
+        local2 = local.substring(0, plusIndex);
+      }
+
+      String local3 = local2.replaceAll("\\.", "");
+
+      String domain = email.substring(index);
+      String mailAddress = local3 + domain;
+      if (tmp.contains(mailAddress)) {
+        continue;
+      }
+      tmp.add(mailAddress);
+    }
+    return tmp.size();
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

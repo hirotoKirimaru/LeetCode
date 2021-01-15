@@ -15,4 +15,11 @@ class _929Tests {
     assertThat(actual).isEqualTo(2);
   }
 
+  @Test
+  void test_02() {
+    int actual = target.numUniqueEmails(new String[]{"testemail@leetcode.com","testemail1@leetcode.com","testemail+david@lee.tcode.com"});
+
+    assertThat(actual).isEqualTo(3);
+  }
+
 }
