@@ -53,7 +53,7 @@ package com.example.leetCode;//You are playing the following Nim Game with your 
 //leetcode submit region begin(Prohibit modification and deletion)
 class _292 {
   public boolean canWinNim(int n) {
-    return !(n % 4 == 0);
+    return n % 4 != 0;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
