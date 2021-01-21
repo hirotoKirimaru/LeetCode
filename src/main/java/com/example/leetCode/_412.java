@@ -39,13 +39,24 @@ class _412 {
   public List<String> fizzBuzz(int n) {
     List<String> rtn = new ArrayList<>();
     for (int i = 1; i <= n; i++) {
-      rtn.add(convert(n));
+      rtn.add(convert(i));
     }
     return rtn;
   }
 
   private String convert(int n) {
-    return String.valueOf(n);
+    StringBuilder sb = new StringBuilder();
+    if (n % 3 == 0) {
+      sb.append("Fizz");
+    }
+    if (n % 5 == 0) {
+      sb.append("Buzz");
+    }
+    if (sb.length() == 0) {
+      sb.append(n);
+    }
+
+    return sb.toString();
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
