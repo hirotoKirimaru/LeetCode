@@ -18,4 +18,19 @@ class _27Tests {
     assertThat(param1[1]).isEqualTo(2);
   }
 
+  @Test
+  void test_02(){
+    int[] param1 = new int[]{ 0,1,2,2,3,0,4,2};
+    int i = target.removeElement(param1, 2);
+
+    assertThat(i).isEqualTo(5);
+    assertThat(param1)
+        .contains(0)
+        .contains(1)
+        .contains(3)
+        .contains(0)
+        .contains(4)
+    ;
+  }
+
 }

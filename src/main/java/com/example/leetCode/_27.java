@@ -69,10 +69,15 @@ class _27 {
     int count = 0;
 
     for (int i = 0; i < nums.length; i++) {
-      nums[i] = 2;
+      if (nums[i] == val) {
+        continue;
+      }
+
+      nums[count] = nums[i];
+      count++;
     }
 
-    return 2;
+    return count;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
