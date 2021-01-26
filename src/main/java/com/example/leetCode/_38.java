@@ -52,22 +52,31 @@ package com.example.leetCode;//The count-and-say sequence is a sequence of digit
 //leetcode submit region begin(Prohibit modification and deletion)
 class _38 {
   public String countAndSay(int n) {
-    if (n == 1) {
-      return "1";
-    } else if (n == 2) {
-      return "11";
-    } else if (n == 3) {
-      return "21";
-    } else if (n == 4) {
-      return "1211";
-    } else if (n == 5) {
-      return "111221";
-    } else if (n == 6) {
-      return "312211";
-    } else if (n == 7) {
-      return "13112221";
+    String rtn = "1";
+    String tmp = "";
+    String tmp2 = "";
+    int sequential = 1;
+    for (int i = 2; i <= n; i++) {
+      for (char c : rtn.toCharArray()) {
+        if (!tmp.equals(String.valueOf(c))) {
+          if (!tmp.isEmpty()) {
+            tmp2 += sequential + tmp;
+          }
+          sequential = 1;
+          tmp = String.valueOf(c);
+        } else {
+          sequential++;
+        }
+      }
+
+      rtn = tmp2 + sequential + tmp;
+
+      tmp = "";
+      tmp2 = "";
+      sequential = 1;
     }
-    return "1211";
+
+    return rtn;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
