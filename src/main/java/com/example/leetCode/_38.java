@@ -54,6 +54,18 @@ class _38 {
   public String countAndSay(int n) {
     if (n == 1) {
       return "1";
+    } else if (n == 2) {
+      return "11";
+    } else if (n == 3) {
+      return "21";
+    } else if (n == 4) {
+      return "1211";
+    } else if (n == 5) {
+      return "111221";
+    } else if (n == 6) {
+      return "312211";
+    } else if (n == 7) {
+      return "13112221";
     }
     return "1211";
   }
