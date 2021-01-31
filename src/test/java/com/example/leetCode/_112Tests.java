@@ -37,4 +37,29 @@ class _112Tests {
 
     assertThat(target.hasPathSum(root, 22)).isEqualTo(true);
   }
+
+  @Test
+  void test_02() {
+    _112.TreeNode root = new _112.TreeNode(1);
+
+    _112.TreeNode left = new _112.TreeNode(2);
+    _112.TreeNode right = new _112.TreeNode(3);
+
+    root.left = left;
+    root.right = right;
+
+    assertThat(target.hasPathSum(root, 5)).isEqualTo(false);
+  }
+
+  @Test
+  void test_03() {
+    _112.TreeNode root = new _112.TreeNode(1);
+
+    _112.TreeNode left = new _112.TreeNode(2);
+
+    root.left = left;
+
+    assertThat(target.hasPathSum(root, 0)).isEqualTo(false);
+  }
+
 }

@@ -40,6 +40,8 @@ package com.example.leetCode;//Given the root of a binary tree and an integer ta
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.LinkedList;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -76,7 +78,54 @@ class _112 {
   }
 
   public boolean hasPathSum(TreeNode root, int targetSum) {
-    return true;
+    if (root == null) {
+      return false;
+    }
+    if (root.val == targetSum && (root.left == null && root.right == null)) {
+      return true;
+    }
+
+    return hasPathSum(root.left, targetSum - root.val)
+        || hasPathSum(root.right, targetSum - root.val);
+  }
+
+  /**
+   * 何も分からない。
+   * https://www.programcreek.com/2013/01/leetcode-path-sum/
+   *
+   * @param root
+   * @param sum
+   * @return
+   */
+  public boolean hasPathSum2(TreeNode root, int sum) {
+    if (root == null) return false;
+
+    LinkedList<TreeNode> nodes = new LinkedList<TreeNode>();
+    LinkedList<Integer> values = new LinkedList<Integer>();
+
+    nodes.add(root);
+    values.add(root.val);
+
+    while (!nodes.isEmpty()) {
+      TreeNode curr = nodes.poll();
+      int sumValue = values.poll();
+
+      if (curr.left == null && curr.right == null && sumValue == sum) {
+        return true;
+      }
+
+      if (curr.left != null) {
+        nodes.add(curr.left);
+        values.add(sumValue + curr.left.val);
+      }
+
+      if (curr.right != null) {
+        nodes.add(curr.right);
+        values.add(sumValue + curr.right.val);
+      }
+    }
+
+    return false;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
