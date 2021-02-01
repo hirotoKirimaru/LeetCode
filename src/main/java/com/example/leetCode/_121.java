@@ -41,7 +41,25 @@ package com.example.leetCode;//You are given an array prices where prices[i] is 
 //leetcode submit region begin(Prohibit modification and deletion)
 class _121 {
   public int maxProfit(int[] prices) {
-    return 5;
+    int min = prices[0];
+    int max = 0;
+    int abs = 0;
+    for (int price : prices) {
+      if (price <= min) {
+        abs = Math.max(Math.max(0, max - min), abs);
+
+        min = price;
+        max = price;
+        continue;
+      }
+
+      if (price >= max) {
+        max = price;
+        abs = max - min;
+      }
+    }
+
+    return Math.max(abs, max - min);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
