@@ -55,7 +55,7 @@ class _121 {
 
       if (price >= max) {
         max = price;
-        abs = max - min;
+        abs = Math.max(abs, max - min);
       }
     }
 
