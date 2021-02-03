@@ -39,43 +39,16 @@ import java.util.Set;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class _136 {
-  public class Result {
-    int num;
-    boolean bool;
-
-    public Result(int num, boolean bool) {
-      this.num = num;
-      this.bool = bool;
-    }
-  }
-
   public int singleNumber(int[] nums) {
-    Set<Result> rtn = new HashSet<>();
-    boolean include = false;
+    List<Integer> rtn = new ArrayList<>();
     for (int num : nums) {
-      for (Result result : rtn) {
-        if (result.num == num) {
-          result.bool = true;
-          include = true;
-          continue;
-        }
-      }
-
-      if (include) {
-        include = false;
+      if (rtn.removeIf(e -> e == num)) {
         continue;
       }
-
-      rtn.add(new Result(num, false));
+      rtn.add(num);
     }
 
-    for (Result result : rtn) {
-      if (result.bool) {
-        continue;
-      }
-      return result.num;
-    }
-    return 0;
+    return rtn.get(0);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
