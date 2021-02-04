@@ -39,8 +39,56 @@ package com.example.leetCode;//Given a positive integer, return its correspondin
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class _168 {
+
+  private enum NumString {
+    A(1),
+    B(2),
+    C(3),
+    D(4),
+    E(5),
+    F(6),
+    G(7),
+    H(8),
+    I(9),
+    J(10),
+    K(11),
+    L(12),
+    M(13),
+    N(14),
+    O(15),
+    P(16),
+    Q(17),
+    R(18),
+    S(19),
+    T(20),
+    U(21),
+    V(22),
+    W(23),
+    X(24),
+    Y(25),
+    Z(26),
+    ;
+    private int num;
+
+    NumString(int num) {
+      this.num = num;
+    }
+
+    public static NumString getAlphabet(int num) {
+      for (NumString value : values()) {
+        if (value.num == num) {
+          return value;
+        }
+      }
+      return null;
+    }
+  }
+
+
   public String convertToTitle(int n) {
-    return "A";
+
+
+    return NumString.getAlphabet(n).toString();
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
