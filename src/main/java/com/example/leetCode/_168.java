@@ -87,8 +87,22 @@ class _168 {
 
   public String convertToTitle(int n) {
 
+    String rtn = "";
+    int tmp = 0;
+    while (true) {
+      if (n <= 26) {
+        rtn += NumString.getAlphabet(n).toString();
+        break;
+      }
 
-    return NumString.getAlphabet(n).toString();
+      tmp = n / 26;
+      rtn += NumString.getAlphabet(tmp).toString();
+
+      n = n % 26;
+
+    }
+
+    return rtn;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
