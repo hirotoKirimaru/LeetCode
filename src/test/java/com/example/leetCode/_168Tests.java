@@ -17,9 +17,20 @@ class _168Tests {
   void test_02() {
     assertThat(target.convertToTitle(28)).isEqualTo("AB");
   }
+
   @Test
   void test_03() {
     assertThat(target.convertToTitle(701)).isEqualTo("ZY");
+  }
+
+  @Test
+  void test_04() {
+    assertThat(target.convertToTitle(52)).isEqualTo("AZ");
+  }
+
+  @Test
+  void test_05() {
+    assertThat(target.convertToTitle(703)).isEqualTo("AAA");
   }
 
 

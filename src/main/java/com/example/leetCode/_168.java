@@ -80,7 +80,7 @@ class _168 {
           return value;
         }
       }
-      return null;
+      return values()[0];
     }
   }
 
@@ -95,11 +95,10 @@ class _168 {
         break;
       }
 
-      tmp = n / 26;
+      tmp = (n -1) / 26;
       rtn += NumString.getAlphabet(tmp).toString();
 
-      n = n % 26;
-
+      n -= tmp * 26;
     }
 
     return rtn;
