@@ -88,17 +88,15 @@ class _168 {
   public String convertToTitle(int n) {
 
     String rtn = "";
-    int tmp = 0;
     while (true) {
       if (n <= 26) {
         rtn += NumString.getAlphabet(n).toString();
         break;
       }
 
-      tmp = (n -1) / 26;
-      rtn += NumString.getAlphabet(tmp).toString();
-
-      n -= tmp * 26;
+      int tmp = (n - 1) / 26;
+      rtn += convertToTitle(tmp);
+      n = n - (tmp * 26);
     }
 
     return rtn;
