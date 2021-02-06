@@ -5,7 +5,7 @@ plugins {
 }
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '15'
+//sourceCompatibility = '15'
 configurations {
   compileOnly {
     extendsFrom annotationProcessor
@@ -24,4 +24,12 @@ dependencies {
 }
 test {
   useJUnitPlatform()
+}
+
+java {
+  // Javaの指定はtoolchain空指定すると良い？理由ブログは下。
+// https://bufferings.hatenablog.com/entry/2021/02/06/124725
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(15)
+  }
 }
