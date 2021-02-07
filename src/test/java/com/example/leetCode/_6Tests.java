@@ -17,8 +17,7 @@ class _6Tests {
   @Test
   void test_01_01() {
     assertThat(target.convert("PAYPALISHIRING", 3))
-        .isEqualTo("PAHN");
-//        .isEqualTo("PAHNYIR");
+        .isEqualTo("PAHNYIR");
   }
 
   @Test

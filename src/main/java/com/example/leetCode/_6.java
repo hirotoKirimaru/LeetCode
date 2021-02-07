@@ -89,8 +89,7 @@ class _6 {
           sb.append(s.charAt(i1));
         }
       }
-      // test_01_01を動かすためのbreak
-      break;
+
 
     }
 
