@@ -75,19 +75,18 @@ class _6 {
     StringBuilder sb = new StringBuilder();
     for (int i = 1; i <= numRows; i++) {
       if (i == 1 || i == numRows) {
+        int i1 = 0;
         for (int i2 = i; i2 <= s.length(); i2++) {
-
-          int i1 = 0;
           if (i2 == i) {
             i1 = i - 1;
           } else {
-            i1 = (2 * numRows - 2) * (i2 - 1);
+            i1 += (2 * numRows - 2);
           }
 
           if (i1 >= s.length()) {
             break;
           }
-          sb.append(s.substring(i1, i1 + 1));
+          sb.append(s.charAt(i1));
         }
       }
       // test_01_01を動かすためのbreak
