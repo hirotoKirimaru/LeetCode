@@ -75,25 +75,30 @@ class _6 {
     StringBuilder sb = new StringBuilder();
     for (int i = 1; i <= numRows; i++) {
       if (i == 1 || i == numRows) {
-        int i1 = 0;
-        for (int i2 = i; i2 <= s.length(); i2++) {
-          if (i2 == i) {
-            i1 = i - 1;
-          } else {
-            i1 += (2 * numRows - 2);
-          }
-
-          if (i1 >= s.length()) {
-            break;
-          }
-          sb.append(s.charAt(i1));
-        }
+        firstAndLastRow(s, numRows, sb, i);
       }
+      // 最初と最後の行以外の加算方法
 
 
     }
 
     return sb.toString();
+  }
+
+  private void firstAndLastRow(String s, int numRows, StringBuilder sb, int i) {
+    int i1 = 0;
+    for (int i2 = i; i2 <= s.length(); i2++) {
+      if (i2 == i) {
+        i1 = i - 1;
+      } else {
+        i1 += (2 * numRows - 2);
+      }
+
+      if (i1 >= s.length()) {
+        break;
+      }
+      sb.append(s.charAt(i1));
+    }
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
