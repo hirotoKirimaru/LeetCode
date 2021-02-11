@@ -76,10 +76,32 @@ class _6 {
     for (int i = 1; i <= numRows; i++) {
       if (i == 1 || i == numRows) {
         firstAndLastRow(s, numRows, sb, i);
+      } else {
+        // 1と最後以外
+        int i1 = 0;
+        boolean even = true;
+        int evenAdd = (numRows - i) * 2;
+        int oddAdd = (numRows * 2) - 2 - evenAdd;
+
+        for (int i2 = i; i2 <= s.length(); i2++) {
+          if (i2 == i) {
+            i1 = i - 1;
+          } else {
+            if (even) {
+              i1 += evenAdd;
+              even = false;
+            } else {
+              i1 += oddAdd;
+              even = true;
+            }
+          }
+
+          if (i1 >= s.length()) {
+            break;
+          }
+          sb.append(s.charAt(i1));
+        }
       }
-      // 最初と最後の行以外の加算方法
-
-
     }
 
     return sb.toString();

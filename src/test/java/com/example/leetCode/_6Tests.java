@@ -1,5 +1,6 @@
 package com.example.leetCode;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,15 +15,31 @@ class _6Tests {
         .isEqualTo("PAHNAPLSIIGYIR");
   }
 
+  @Disabled
   @Test
   void test_01_01() {
     assertThat(target.convert("PAYPALISHIRING", 3))
         .isEqualTo("PAHNYIR");
   }
 
+  @Disabled
+  @Test
+  void test_01_02() {
+    assertThat(target.convert("PAYPALISHIRING", 3))
+        .isEqualTo("APLSIIG");
+  }
+
+
+
   @Test
   void test_02() {
     assertThat(target.convert("PAYPALISHIRING",4)).isEqualTo("PINALSIGYAHRPI");
+  }
+
+  @Disabled
+  @Test
+  void test_02_01() {
+    assertThat(target.convert("PAYPALISHIRING",4)).isEqualTo("ALSIGYAHR");
   }
 
   @Test
