@@ -20,4 +20,14 @@ class _387Tests {
   void test_03() {
     assertThat(target.firstUniqChar(null)).isEqualTo(-1);
   }
+
+  @Test
+  void test_04() {
+    assertThat(target.firstUniqChar("")).isEqualTo(-1);
+  }
+
+  @Test
+  void test_05() {
+    assertThat(target.firstUniqChar("cc")).isEqualTo(-1);
+  }
 }
