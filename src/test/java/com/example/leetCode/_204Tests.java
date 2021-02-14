@@ -26,9 +26,9 @@ class _204Tests {
   void test_04() {
     assertThat(target.countPrimes(2)).isEqualTo(0);
   }
-  @Disabled("タイムアウトしてしまう")
+//  @Disabled("タイムアウトしてしまう")
   @Test
   void test_05() {
-    assertThat(target.countPrimes(499979)).isEqualTo(0);
+    assertThat(target.countPrimes(499979)).isEqualTo(41537);
   }
 }

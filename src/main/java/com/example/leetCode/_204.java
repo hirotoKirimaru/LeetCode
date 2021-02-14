@@ -40,14 +40,18 @@ import java.util.Set;
 class _204 {
   public int countPrimes(int n) {
     Set<Integer> rtn = new HashSet<>();
-    for (int i = 2; i < n; i++) {
+    if (2 < n) {
+      rtn.add(2);
+    }
+    for (int i = 3; i < n; i++) {
+      if (i % 2 == 0) {
+        continue;
+      }
       boolean prime = true;
       for (Integer integer : rtn) {
-        int divide = i / integer;
-        int multiple = divide * integer;
-        if (i == multiple) {
+        if (i % integer == 0) {
           prime = false;
-          continue;
+          break;
         }
       }
       if (prime) {
