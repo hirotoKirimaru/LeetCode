@@ -1,5 +1,7 @@
 package com.example.leetCode;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,5 +21,14 @@ class _204Tests {
   @Test
   void test_03() {
     assertThat(target.countPrimes(1)).isEqualTo(0);
+  }
+  @Test
+  void test_04() {
+    assertThat(target.countPrimes(2)).isEqualTo(0);
+  }
+  @Disabled("タイムアウトしてしまう")
+  @Test
+  void test_05() {
+    assertThat(target.countPrimes(499979)).isEqualTo(0);
   }
 }
