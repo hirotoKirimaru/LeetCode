@@ -43,6 +43,7 @@ class _204 {
     if (2 < n) {
       rtn.add(2);
     }
+    // エラストネスの篩で早く求められるらしい
     for (int i = 3; i < n; i++) {
       if (i % 2 == 0) {
         continue;
