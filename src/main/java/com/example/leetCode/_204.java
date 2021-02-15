@@ -39,27 +39,17 @@ import java.util.Set;
 //leetcode submit region begin(Prohibit modification and deletion)
 class _204 {
   public int countPrimes(int n) {
-    Set<Integer> rtn = new HashSet<>();
-    if (2 < n) {
-      rtn.add(2);
-    }
-    // エラストネスの篩で早く求められるらしい
-    for (int i = 3; i < n; i++) {
-      if (i % 2 == 0) {
-        continue;
-      }
-      boolean prime = true;
-      for (Integer integer : rtn) {
-        if (i % integer == 0) {
-          prime = false;
-          break;
+    boolean notPrime[] = new boolean[n];
+    int count = 0;
+    for (int i = 2; i < n; i++) {
+      if (!notPrime[i]) {
+        count++;
+        for (int j = 2; i * j < n; j++) {
+          notPrime[i * j] = true;
         }
       }
-      if (prime) {
-        rtn.add(i);
-      }
     }
-    return rtn.size();
+    return count;
   }
 
 }
