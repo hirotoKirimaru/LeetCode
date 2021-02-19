@@ -50,16 +50,16 @@ package com.example.leetCode;//Reverse bits of a given 32 bits unsigned integer.
 //leetcode submit region begin(Prohibit modification and deletion)
 public class _190 {
   // you need treat n as an unsigned value
+  // 答え見た
   public int reverseBits(int n) {
-    String s = Integer.toBinaryString(n);
-    String r = "";
-    for (int i = s.toCharArray().length; 0 < i; i--) {
-      char c = s.toCharArray()[i -1];
-      r += c;
+    int ret = 0;
+    int power = 31;
+    while (n != 0) {
+      ret += (n & 1) << power;
+      n = n >> 1;
+      power -= 1;
     }
-//    System.out.println(s);
-//    System.out.println(r);
-    return Integer.parseInt(r, 2);
+    return ret;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

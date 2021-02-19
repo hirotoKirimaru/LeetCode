@@ -11,16 +11,18 @@ class _190Tests {
 
   @Test
   void test_01() {
-    assertThat(target.reverseBits(43261596)).isEqualTo(964176192);
+//    assertThat(target.reverseBits(43261596)).isEqualTo(964176192);
+    assertThat(target.reverseBits(0b00000010100101000001111010011100)).isEqualTo(964176192);
   }
 
-  @Disabled("わからん")
+//  @Disabled("わからん")
   @Test
   void test_02() {
 //    Your input:00000010100101000001111010011100
     // 43261596
 //    Output:    15065253 (00000000111001011110000010100101)
+    //                       00111001011110000010100101
 //    Expected:   964176192 (00111001011110000010100101000000)
-    assertThat(target.reverseBits(43261596)).isEqualTo(964176192);
+    assertThat(target.reverseBits(0b00000010100101000001111010011100)).isEqualTo(964176192);
   }
 }
