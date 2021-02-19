@@ -52,14 +52,13 @@ public class _190 {
   // you need treat n as an unsigned value
   // 答え見た
   public int reverseBits(int n) {
-    int ret = 0;
-    int power = 31;
-    while (n != 0) {
-      ret += (n & 1) << power;
-      n = n >> 1;
-      power -= 1;
+    int ans = 0;
+    for (int i = 0; i < 32; i++) {
+      ans <<= 1;
+      ans = ans | (n & 1);
+      n >>= 1;
     }
-    return ret;
+    return ans;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
