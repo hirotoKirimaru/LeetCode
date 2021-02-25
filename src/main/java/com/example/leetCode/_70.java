@@ -38,7 +38,17 @@ package com.example.leetCode;//You are climbing a staircase. It takes n steps to
 //leetcode submit region begin(Prohibit modification and deletion)
 class _70 {
   public int climbStairs(int n) {
-    return n;
+    if (n == 1) {
+      return 1;
+    }
+    int first = 1;
+    int second = 2;
+    for (int i = 3; i <= n; i++) {
+      int third = first + second;
+      first = second;
+      second = third;
+    }
+    return second;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
