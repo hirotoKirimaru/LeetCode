@@ -42,10 +42,22 @@ package com.example.leetCode;//Given integer array nums, return the third maximu
 // 👍 909 👎 1613
 
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class _414{
+class _414 {
   public int thirdMax(int[] nums) {
-    return nums[nums.length -1];
+    int[] ints = Arrays.stream(nums)
+        .distinct()
+        .sorted()
+        .toArray();
+    if (ints.length > 2) {
+      return ints[ints.length - 3];
+    } else {
+      return ints[ints.length - 1];
+    }
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

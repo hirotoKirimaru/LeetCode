@@ -12,4 +12,16 @@ class _414Tests {
   void test_01() {
     assertThat(target.thirdMax(new int[]{3, 2, 1})).isEqualTo(1);
   }
+
+  @Test
+  void test_02() {
+
+    assertThat(target.thirdMax(new int[]{5, 2, 2})).isEqualTo(5);
+  }
+
+  @Test
+  void test_03() {
+    assertThat(target.thirdMax(new int[]{2, 2, 3, 1})).isEqualTo(1);
+  }
+
 }
