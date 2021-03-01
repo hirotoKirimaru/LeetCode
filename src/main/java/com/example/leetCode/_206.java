@@ -40,6 +40,9 @@ package com.example.leetCode;//Given the head of a singly linked list, reverse t
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -70,7 +73,11 @@ class _206 {
   }
 
   public ListNode reverseList(ListNode head) {
-    return null;
+    if (head == null || head.next == null) return head;
+    ListNode p = reverseList(head.next);
+    head.next.next = head;
+    head.next = null;
+    return p;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
