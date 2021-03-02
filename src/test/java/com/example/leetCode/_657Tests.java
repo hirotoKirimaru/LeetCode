@@ -12,4 +12,14 @@ class _657Tests {
   void test_01() {
     assertThat(target.judgeCircle("UD")).isEqualTo(true);
   }
+
+  @Test
+  void test_02() {
+    assertThat(target.judgeCircle("LL")).isEqualTo(false);
+  }
+
+  @Test
+  void test_03() {
+    assertThat(target.judgeCircle("LRUD")).isEqualTo(true);
+  }
 }

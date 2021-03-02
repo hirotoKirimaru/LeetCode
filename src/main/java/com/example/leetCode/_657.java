@@ -60,7 +60,21 @@ package com.example.leetCode;//There is a robot starting at position (0, 0), the
 //leetcode submit region begin(Prohibit modification and deletion)
 class _657 {
   public boolean judgeCircle(String moves) {
-    return true;
+    // L 76 R 82 U 85 D68
+    int lr = 0;
+    int ud = 0;
+    for (char c : moves.toCharArray()) {
+      if (c == 76) {
+        lr -= 1;
+      } else if (c == 82) {
+        lr += 1;
+      } else if (c == 85) {
+        ud += 1;
+      } else {
+        ud -= 1;
+      }
+    }
+    return lr == 0 && ud == 0;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
