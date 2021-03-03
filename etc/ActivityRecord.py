@@ -1,8 +1,19 @@
 import json
 import math
+import sys
 
-json_days = open('202101.json', 'r')
+json_days = open('wakatime.json', 'r')
 json_load = json.load(json_days)
+
+if len(sys.argv) < 3:
+    print('パラメータが必要です')
+    print('例')
+    print('python ファイル名 開始日 終了日（開始日は含むが終了日は含まない）')
+    print('python ActivitiRecord.py 2021-02-01 2021-03-01')
+    exit()
+
+start_date = sys.argv[1]
+end_date = sys.argv[2]
 
 # print(json_load)
 # hours = 0;
@@ -10,11 +21,13 @@ json_load = json.load(json_days)
 # seconds = 0;
 total_seconds = 0;
 for day in json_load['days']:
-    for category in day['categories']:
-        # hours += category['hours']
-        # minutes += category['minutes']
-        # seconds += category['seconds']
-        total_seconds += category['total_seconds']
+    date = day['date']
+    if start_date <= date < end_date:
+        for category in day['categories']:
+            # hours += category['hours']
+            # minutes += category['minutes']
+            # seconds += category['seconds']
+            total_seconds += category['total_seconds']
 
 # TODO: いいかんじに巨大なCSVから特定の期間を抜き取る
 
