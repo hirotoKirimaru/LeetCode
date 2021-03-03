@@ -27,6 +27,11 @@ for day in json_load['days']:
             # hours += category['hours']
             # minutes += category['minutes']
             # seconds += category['seconds']
+            hours = math.floor(category['total_seconds'] /60/60)
+            minutes = math.floor((category['total_seconds'] - (hours*60*60))/60)
+            seconds = math.floor((category['total_seconds'] - (hours*60*60) - (minutes * 60)))
+            
+            print(date , ':', hours, '時間',minutes, '分', seconds, '秒')
             total_seconds += category['total_seconds']
 
 # TODO: いいかんじに巨大なCSVから特定の期間を抜き取る
