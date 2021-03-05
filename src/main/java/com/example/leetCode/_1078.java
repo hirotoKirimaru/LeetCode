@@ -38,10 +38,23 @@ package com.example.leetCode;//Given words first and second, consider occurrence
 // 👍 204 👎 223
 
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _1078 {
   public String[] findOcurrences(String text, String first, String second) {
-    return new String[]{"girl", "student"};
+    ArrayList<String> arrayList = new ArrayList<String>();
+    String[] s1 = text.split(" ");
+    for (int i = 0; i < s1.length -2; i++) {
+      if (first.equals(s1[i])) {
+        if (second.equals(s1[i + 1])) {
+          arrayList.add(s1[i + 2]);
+        }
+      }
+    }
+
+    return arrayList.toArray(String[]::new);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
