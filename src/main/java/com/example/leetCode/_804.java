@@ -42,10 +42,71 @@ package com.example.leetCode;//International Morse Code defines a standard encod
 // 👍 886 👎 816
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class _804{
+class _804 {
+
+  public enum Conv {
+    A(97, ".-"),
+    B(98, "-..."),
+    C(99, "-.-."),
+    D(100, "-.."),
+    E(101, "."),
+    F(102, "..-."),
+    G(103, "--."),
+    H(104, "...."),
+    I(105, ".."),
+    J(106, ".---"),
+    K(107, "-.-"),
+    L(108, ".-.."),
+    M(109, "--"),
+    N(110, "-."),
+    O(111, "---"),
+    P(112, ".--."),
+    Q(113, "--.-"),
+    R(114, ".-."),
+    S(115, "..."),
+    T(116, "-"),
+    U(117, "..-"),
+    V(118, "...-"),
+    W(119, ".--"),
+    X(120, "-..-"),
+    Y(121, "-.--"),
+    Z(122, "--..");
+
+    int charactor;
+    String value;
+
+    Conv(int i, String s) {
+      this.charactor = i;
+      this.value = s;
+    }
+
+    public static String toConv(char charactor) {
+      for (Conv conv : Conv.values()) {
+        if (conv.charactor == charactor) {
+          return conv.value;
+        }
+      }
+      throw new RuntimeException("");
+    }
+
+  }
+
   public int uniqueMorseRepresentations(String[] words) {
-    return 2;
+    Set<String> rtn = new HashSet();
+
+    for (String word : words) {
+      String conv = "";
+      for (char c : word.toCharArray()) {
+        conv += Conv.toConv(c);
+      }
+      rtn.add(conv);
+    }
+
+    return rtn.size();
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
