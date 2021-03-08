@@ -20,4 +20,11 @@ class _844Tests {
         target.backspaceCompare("a#c", "b")
     ).isEqualTo(false);
   }
+
+  @Test
+  void test_03() {
+    assertThat(
+        target.backspaceCompare("ab##","c#d#")
+    ).isEqualTo(true);
+  }
 }

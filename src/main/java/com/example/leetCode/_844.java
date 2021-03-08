@@ -60,10 +60,27 @@ package com.example.leetCode;//Given two strings S and T, return if they are equ
 // 👍 2308 👎 110
 
 
+import java.util.Stack;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class _844{
+class _844 {
   public boolean backspaceCompare(String S, String T) {
-    return true;
+
+    return extracted(S).equals(extracted(T));
+  }
+
+  private String extracted(String S) {
+    Stack<String> rtn = new Stack<>();
+    for (char c : S.toCharArray()) {
+      if ("#".equals(String.valueOf(c))) {
+        if (!rtn.isEmpty()) {
+          rtn.pop();
+        }
+      } else {
+        rtn.push(String.valueOf(c));
+      }
+    }
+    return String.valueOf(rtn);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
