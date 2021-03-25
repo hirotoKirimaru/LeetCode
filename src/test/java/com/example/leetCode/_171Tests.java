@@ -28,4 +28,13 @@ class _171Tests {
         target.titleToNumber("ZY")
     ).isEqualTo(701);
   }
+
+  @Test
+  void test_04() {
+    assertThat(
+        target.titleToNumber("FXSHRXW")
+    ).isEqualTo(2147483647);
+
+  }
+
 }

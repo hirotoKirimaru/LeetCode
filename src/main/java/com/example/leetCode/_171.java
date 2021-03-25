@@ -65,7 +65,7 @@ class _171 {
       if (length == 0) {
         rtn += c - 64;
       } else {
-        rtn += (c - 64) * length * 26;
+        rtn += (c - 64) * Math.pow(26, length);
       }
     }
     return rtn;
