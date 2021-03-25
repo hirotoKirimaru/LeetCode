@@ -14,4 +14,18 @@ class _171Tests {
         target.titleToNumber("A")
     ).isEqualTo(1);
   }
+
+  @Test
+  void test_02() {
+    assertThat(
+        target.titleToNumber("AB")
+    ).isEqualTo(28);
+  }
+
+  @Test
+  void test_03() {
+    assertThat(
+        target.titleToNumber("ZY")
+    ).isEqualTo(701);
+  }
 }

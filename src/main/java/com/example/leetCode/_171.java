@@ -58,7 +58,17 @@ package com.example.leetCode;//Given a string columnTitle that represents the co
 //leetcode submit region begin(Prohibit modification and deletion)
 class _171 {
   public int titleToNumber(String columnTitle) {
-    return 1;
+    int rtn = 0;
+    int length = columnTitle.length();
+    for (char c : columnTitle.toCharArray()) {
+      length--;
+      if (length == 0) {
+        rtn += c - 64;
+      } else {
+        rtn += (c - 64) * length * 26;
+      }
+    }
+    return rtn;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
