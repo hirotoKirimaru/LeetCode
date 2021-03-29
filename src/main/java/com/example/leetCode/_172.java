@@ -40,7 +40,23 @@ package com.example.leetCode;//Given an integer n, return the number of trailing
 //leetcode submit region begin(Prohibit modification and deletion)
 class _172 {
   public int trailingZeroes(int n) {
-    return 0;
+    int tmp = 1;
+    for (int i = 1; i <= n; i++) {
+      tmp = tmp * i;
+    }
+
+    int rtn = 0;
+    String s = String.valueOf(tmp);
+    char[] chars = s.toCharArray();
+    for (int i = s.length() - 1; 0 < i; i--) {
+      if (chars[i] == 48) {
+        rtn++;
+        continue;
+      } else {
+        return rtn;
+      }
+    }
+    return rtn;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

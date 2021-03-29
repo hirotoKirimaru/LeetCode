@@ -29,4 +29,18 @@ class _172Tests {
     ).isEqualTo(0);
   }
 
+  @Test
+  void test_04() {
+    assertThat(
+        target.trailingZeroes(7)
+    ).isEqualTo(1);
+  }
+
+  @Test
+  void test_05() {
+    assertThat(
+        target.trailingZeroes(13)
+    ).isEqualTo(2);
+  }
+
 }
