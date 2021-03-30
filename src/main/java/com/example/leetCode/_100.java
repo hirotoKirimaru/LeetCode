@@ -41,6 +41,8 @@ package com.example.leetCode;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import java.util.Objects;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -77,7 +79,31 @@ class _100 {
   }
 
   public boolean isSameTree(TreeNode p, TreeNode q) {
+    if (p == null || q == null) {
+      return p == q;
+    }
+    if (!Objects.equals(p.val, q.val)) {
+      return false;
+    }
+
+    if (check(p.left, q.left)) return false;
+    if (check(p.right, q.right)) return false;
+
     return true;
+  }
+
+  private boolean check(TreeNode p, TreeNode q) {
+    if (p != null && q != null) {
+      if (!isSameTree(p, q)) {
+        return true;
+      }
+    } else {
+      // どっちもnullでequalsになる
+      if (p != q) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
