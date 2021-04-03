@@ -24,7 +24,19 @@ package com.example.leetCode;
 //leetcode submit region begin(Prohibit modification and deletion)
 class _485 {
   public int findMaxConsecutiveOnes(int[] nums) {
-    return 3;
+    int max = 0;
+    int tmp = 0;
+    for (int num : nums) {
+      if (num == 0) {
+        max = Math.max(max, tmp);
+        tmp = 0;
+      } else {
+        tmp++;
+      }
+    }
+    max = Math.max(max, tmp);
+
+    return max;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

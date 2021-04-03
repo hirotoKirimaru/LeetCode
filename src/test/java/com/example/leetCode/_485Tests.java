@@ -14,4 +14,12 @@ class _485Tests {
         target.findMaxConsecutiveOnes(new int[]{1, 1, 0, 1, 1, 1})
     ).isEqualTo(3);
   }
+
+  @Test
+  void test_02() {
+    assertThat(
+        target.findMaxConsecutiveOnes(new int[]{1, 0, 1, 1, 0, 1})
+    ).isEqualTo(2);
+  }
+
 }
