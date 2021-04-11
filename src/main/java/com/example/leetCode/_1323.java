@@ -42,9 +42,19 @@ package com.example.leetCode;//Given a positive integer num consisting only of d
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class _1323{
-  public int maximum69Number (int num) {
-    return 9969;
+class _1323 {
+
+
+  public int maximum69Number(int num) {
+    String numStr = String.valueOf(num);
+    int i = numStr.indexOf("6");
+    if (i != -1) {
+      int i1 = numStr.length() - i - 1;
+      int compute = i1 == 0 ? 3 : 3 * (int)Math.pow(10, i1);
+      num += compute;
+    }
+
+    return num;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

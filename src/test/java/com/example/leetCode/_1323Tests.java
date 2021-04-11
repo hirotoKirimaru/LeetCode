@@ -14,4 +14,11 @@ class _1323Tests {
         target.maximum69Number(9669)
     ).isEqualTo(9969);
   }
+
+  @Test
+  void test_02() {
+    assertThat(
+        target.maximum69Number(9996)
+    ).isEqualTo(9999);
+  }
 }
