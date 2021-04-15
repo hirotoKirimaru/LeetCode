@@ -45,10 +45,27 @@ package com.example.leetCode;
 // 👍 1190 👎 223
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
-class _509{
+class _509 {
   public int fib(int n) {
-    return 1;
+    if (n == 0) {
+      return 0;
+    }
+    if (n == 1) {
+      return 1;
+    }
+
+    List<Integer> list = new ArrayList<>();
+    list.add(0);
+    list.add(1);
+
+    for (int i = 2; i <= n; i++) {
+      list.add(list.get(i - 2) + list.get(i - 1));
+    }
+    return list.get(list.size() - 1);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

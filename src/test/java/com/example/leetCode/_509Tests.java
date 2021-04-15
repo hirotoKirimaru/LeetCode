@@ -14,4 +14,18 @@ class _509Tests {
         target.fib(2)
     ).isEqualTo(1);
   }
+
+  @Test
+  void test_02() {
+    assertThat(
+        target.fib(3)
+    ).isEqualTo(2);
+  }
+
+  @Test
+  void test_03() {
+    assertThat(
+        target.fib(4)
+    ).isEqualTo(3);
+  }
 }
