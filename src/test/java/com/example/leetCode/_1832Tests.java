@@ -14,4 +14,10 @@ class _1832Tests {
         target.checkIfPangram("thequickbrownfoxjumpsoverthelazydog")
     ).isEqualTo(true);
   }
+  @Test
+  void test_02() {
+    assertThat(
+        target.checkIfPangram("leetcode")
+    ).isEqualTo(false);
+  }
 }

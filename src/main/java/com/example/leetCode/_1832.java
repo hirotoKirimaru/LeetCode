@@ -33,10 +33,17 @@ package com.example.leetCode;
 // 👍 54 👎 0
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _1832 {
   public boolean checkIfPangram(String sentence) {
-    return true;
+    Set<Character> set = new HashSet<Character>();
+    for (char c : sentence.toCharArray()) {
+      set.add(c);
+    }
+    return set.size() == 26;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
