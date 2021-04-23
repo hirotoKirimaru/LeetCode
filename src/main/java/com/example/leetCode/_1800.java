@@ -54,7 +54,19 @@ package com.example.leetCode;
 //leetcode submit region begin(Prohibit modification and deletion)
 class _1800 {
   public int maxAscendingSum(int[] nums) {
-    return 65;
+    int ans = nums[0];
+
+    int cur = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      if (nums[i] > nums[i-1]) {
+        cur += nums[i];
+      } else {
+        cur = nums[i];
+      }
+      ans = Math.max(ans, cur);
+    }
+
+    return ans;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
