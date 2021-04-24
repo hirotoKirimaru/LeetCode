@@ -43,10 +43,32 @@ package com.example.leetCode;
 // 👍 3099 👎 510
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class _202 {
   public boolean isHappy(int n) {
-    return true;
+    List<Double> doubleList = new ArrayList<>();
+    return getSum(n, doubleList);
+  }
+
+  private boolean getSum(int n, List<Double> doubleList) {
+    if (n == 1) {
+      return true;
+    }
+
+    String s = String.valueOf(n);
+    double sum = 0;
+    for (char c : s.toCharArray()) {
+      sum += Math.pow(Integer.parseInt(String.valueOf(c)), 2);
+    }
+    if (doubleList.contains(sum)) {
+      return false;
+    }
+    doubleList.add(sum);
+
+    return getSum((int) sum, doubleList);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
