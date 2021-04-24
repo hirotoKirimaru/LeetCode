@@ -74,6 +74,9 @@ class _202 {
       beforeSum += tmp;
       i *= 10;
     }
+    // こういう書き方もあり。
+//    sum = String.valueOf(n).chars().map(a -> (a - 0x30)).map(a -> a * a).sum();
+
     if (doubleList.contains(sum)) {
       return false;
     }
