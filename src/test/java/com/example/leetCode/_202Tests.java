@@ -20,4 +20,18 @@ class _202Tests {
         target.isHappy(2)
     ).isEqualTo(false);
   }
+
+  @Test
+  void test_03() {
+    assertThat(
+        target.isHappy(1819140969)
+    ).isEqualTo(true);
+  }
+
+  @Test
+  void test_04() {
+    assertThat(
+        target.isHappy(1999999999)
+    ).isEqualTo(false);
+  }
 }

@@ -58,10 +58,21 @@ class _202 {
       return true;
     }
 
-    String s = String.valueOf(n);
     double sum = 0;
-    for (char c : s.toCharArray()) {
-      sum += Math.pow(Integer.parseInt(String.valueOf(c)), 2);
+
+    int i = 1;
+    int beforeSum = 0;
+
+    while (true) {
+      int hoge = n % (10 * i);
+      int tmp = hoge - beforeSum;
+
+      sum += Math.pow(tmp / i, 2);
+      if (hoge == n) {
+        break;
+      }
+      beforeSum += tmp;
+      i *= 10;
     }
     if (doubleList.contains(sum)) {
       return false;
