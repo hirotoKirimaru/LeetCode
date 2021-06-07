@@ -5,3 +5,4 @@ LeetCode.iml
 /.gradle/
 /build/
 .project
+/.venv/
