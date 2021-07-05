@@ -12,11 +12,11 @@ if len(sys.argv) < 3:
     print('python ファイル名 開始日 終了日（開始日は含むが終了日は含まない）')
 
     now = datetime.datetime.now()
-    start_date = f"{now:%Y-%m-%d}"
-    end_date = f"{now:%Y-%m-%d}"
+    # 先月は1日(当月の1日)、-1日(先月にする)、それを1日にする(先月の1日)
+    start_date = f"{(now.replace(day=1) - datetime.timedelta(days=1)).replace(day=1):%Y-%m-%d}"
+    end_date = f"{now.replace(day=1):%Y-%m-%d}"
 
     # print('python ActivityRecord.py 2021-02-01 2021-03-01')
-    # TODO: いい感じにしたい
     print('python ActivityRecord.py {0} {1}'.format(start_date, end_date))
     
     exit()
