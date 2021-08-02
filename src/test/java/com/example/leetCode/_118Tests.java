@@ -15,7 +15,15 @@ class _118Tests {
   void test_01() {
 
     assertThat(
-        target.generate(0)
-    ).isEqualTo(Arrays.asList());
+        target.generate(5)
+    ).isEqualTo(
+        Arrays.asList(
+            Arrays.asList(1),
+            Arrays.asList(1, 1),
+            Arrays.asList(1, 2, 1),
+            Arrays.asList(1, 3, 3, 1),
+            Arrays.asList(1, 4, 6, 4, 1)
+        )
+    );
   }
 }

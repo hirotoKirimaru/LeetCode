@@ -22,14 +22,41 @@ package com.example.leetCode;
 // 👍 3157 👎 149
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class _118{
+class _118 {
 
   public List<List<Integer>> generate(int numRows) {
-    return Arrays.asList();
+    var rtn = new ArrayList<List<Integer>>();
+
+    for (int i = 1; i <= numRows; i++) {
+      var tmp = new ArrayList<Integer>();
+      if (rtn.isEmpty()) {
+        tmp.add(1);
+      } else if (rtn.size() == 1) {
+        tmp.add(1);
+        tmp.add(1);
+      } else {
+        List<Integer> integers = rtn.get(i - 2);
+        for (int i1 = 0; i1 < integers.size(); i1++) {
+          if (i1 == 0) {
+            tmp.add(1);
+          } else {
+            Integer integer1 = integers.get(i1 - 1);
+            Integer integer2 = integers.get(i1);
+            tmp.add(integer1 + integer2);
+          }
+        }
+        tmp.add(1);
+      }
+
+      rtn.add(tmp);
+    }
+
+    return rtn;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
