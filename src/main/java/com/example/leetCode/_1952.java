@@ -35,6 +35,17 @@ package com.example.leetCode;
 class _1952 {
 
   public boolean isThree(int n) {
+    int result = 0;
+    for (int i = 1; i <= n; i++) {
+      int tmp = n / i;
+      if (tmp * i == n) {
+        result++;
+        if (result == 3) {
+          return true;
+        }
+      }
+    }
+
     return false;
   }
 }
