@@ -29,5 +29,11 @@ class _1945Tests {
     ).isEqualTo(36);
   }
 
+  @Test
+  void test_04() {
+    assertThat(
+        target.getLucky("leetcode", 2)
+    ).isEqualTo(6);
+  }
 
 }

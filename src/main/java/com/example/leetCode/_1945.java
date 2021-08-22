@@ -67,11 +67,22 @@ class _1945 {
 
   public int getLucky(String s, int k) {
     int result = 0;
+    String a = "";
     for (char c : s.toCharArray()) {
-      result += c - 96;
+//      result += c - 96;
+      a += c - 96;
     }
 
+    return num(a);
+  }
+
+  public int num(String num){
+    int result = 0;
+    for (char c : num.toCharArray()) {
+      result += c - 48;
+    }
     return result;
   }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
