@@ -68,7 +68,7 @@ class _1945 {
   public int getLucky(String s, int k) {
     int result = 0;
     for (char c : s.toCharArray()) {
-      result += c - 48;
+      result += c - 96;
     }
 
     return result;
