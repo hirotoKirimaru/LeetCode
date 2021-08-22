@@ -21,4 +21,11 @@ class _1952Tests {
         target.isThree(4)
     ).isTrue();
   }
+
+  @Test
+  void test_03() {
+    assertThat(
+        target.isThree(12)
+    ).isFalse();
+  }
 }

@@ -40,13 +40,13 @@ class _1952 {
       int tmp = n / i;
       if (tmp * i == n) {
         result++;
-        if (result == 3) {
-          return true;
+        if (result == 4) {
+          return false;
         }
       }
     }
 
-    return false;
+    return result == 3;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
