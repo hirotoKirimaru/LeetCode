@@ -72,11 +72,16 @@ class _1945 {
 //      result += c - 96;
       a += c - 96;
     }
-
-    return num(a);
+    int b = 0;
+    String bstr = a;
+    for (int i = 0; i < k; i++) {
+      b = num(bstr);
+      bstr = String.valueOf(b);
+    }
+    return b;
   }
 
-  public int num(String num){
+  public int num(String num) {
     int result = 0;
     for (char c : num.toCharArray()) {
       result += c - 48;
