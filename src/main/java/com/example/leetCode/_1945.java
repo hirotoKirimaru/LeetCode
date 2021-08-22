@@ -66,14 +66,12 @@ package com.example.leetCode;
 class _1945 {
 
   public int getLucky(String s, int k) {
-    int result = 0;
-    String a = "";
+    StringBuilder a = new StringBuilder();
     for (char c : s.toCharArray()) {
-//      result += c - 96;
-      a += c - 96;
+      a.append(c - 96);
     }
     int b = 0;
-    String bstr = a;
+    String bstr = a.toString();
     for (int i = 0; i < k; i++) {
       b = num(bstr);
       bstr = String.valueOf(b);
