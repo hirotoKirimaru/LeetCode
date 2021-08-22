@@ -66,7 +66,12 @@ package com.example.leetCode;
 class _1945 {
 
   public int getLucky(String s, int k) {
-    return 1;
+    int result = 0;
+    for (char c : s.toCharArray()) {
+      result += c - 48;
+    }
+
+    return result;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)

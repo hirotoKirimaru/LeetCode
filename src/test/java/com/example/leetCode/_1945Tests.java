@@ -14,4 +14,11 @@ class _1945Tests {
         target.getLucky("1", 1)
     ).isEqualTo(1);
   }
+
+  @Test
+  void test_02() {
+    assertThat(
+        target.getLucky("2", 1)
+    ).isEqualTo(2);
+  }
 }
