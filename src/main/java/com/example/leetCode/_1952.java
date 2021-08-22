@@ -35,18 +35,13 @@ package com.example.leetCode;
 class _1952 {
 
   public boolean isThree(int n) {
-    int r = 0;
+    int count = 0;
     for (int i = 1; i <= n; i++) {
-      if (n / i * i == n) {
-        if (r == 3) {
-          return false;
-        } else {
-          r++;
-        }
+      if (n % i == 0) {
+        count++;
       }
     }
-
-    return r == 3;
+    return count == 3;
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
