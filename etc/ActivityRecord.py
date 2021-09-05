@@ -19,10 +19,14 @@ if len(sys.argv) < 3:
     # print('python ActivityRecord.py 2021-02-01 2021-03-01')
     print('python ActivityRecord.py {0} {1}'.format(start_date, end_date))
     
-    exit()
-
-start_date = sys.argv[1]
-end_date = sys.argv[2]
+    choice = input("上記コマンドで実行してもよろしいですか？ [y/N]: ").lower()
+    if choice in ['y', 'ye', 'yes']:
+        pass
+    else:
+        exit()
+else:
+    start_date = sys.argv[1]
+    end_date = sys.argv[2]
 
 # print(json_load)
 # hours = 0;
