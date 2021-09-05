@@ -44,8 +44,34 @@ package com.example.leetCode;
 //leetcode submit region begin(Prohibit modification and deletion)
 class _5 {
 
+  // コピペ
+  //https://leetcode.com/problems/longest-palindromic-substring/discuss/410963/Python-beats-93-solution-with-illustrations
   public String longestPalindrome(String s) {
-    return "bab";
+    if (s.length() < 2) {
+      return s;
+    }
+    int start = 0;
+    int maxLen = 1;
+    int i = 0;
+
+    while (i < s.length()) {
+      int l = i;
+      int r = i;
+
+      while ((r < s.length() - 1) && (s.charAt(r) == s.charAt(r + 1))) {
+        r += 1;
+      }
+      i = r + 1;
+      while ((r < s.length() - 1) && l > 0 && s.charAt(r + 1) == s.charAt(l - 1)) {
+        l -= 1;
+        r += 1;
+      }
+      if ((maxLen < r - l + 1)) {
+        start = l;
+        maxLen = r - l + 1;
+      }
+    }
+    return s.substring(start, start + maxLen);
   }
 }
 //leetcode submit region end(Prohibit modification and deletion)
